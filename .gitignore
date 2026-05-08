@@ -1,0 +1,3 @@
+.venv/
+annotate_data/Dataset/Reddit_raw_data(Unlabled)/*
+annotate_data/Dataset/Unlabled_Data/sampled*.csv
