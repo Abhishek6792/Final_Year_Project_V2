@@ -1,0 +1,24 @@
+teacher_model: microsoft/deberta-v3-base
+student_model: distilroberta-base
+
+max_length: 512
+batch_size: 8
+lr: 2e-5
+epochs: 5
+weight_decay: 0.01
+warmup_ratio: 0.1
+
+num_labels: 8
+num_severity: 4
+
+mixed_precision: true
+
+label_names:
+  - attention_dysregulation
+  - anxious_affect
+  - autistic_trait_discussion
+  - emotional_instability
+  - depressive_affect
+  - trauma_stress
+  - crisis_self_harm
+  - no_clear_signal
