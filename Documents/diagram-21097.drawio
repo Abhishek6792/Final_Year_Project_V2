@@ -1,0 +1,140 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram name="Page-1" id="unique-diagram-id">
+    <mxGraphModel dx="829" dy="524" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="v-2" value="User" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="374" y="300" width="80" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="v-3" value="Popup UI (popup.html)" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="324" y="410" width="180" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="v-4" value="Content Script (content.js)" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="124" y="560" width="180" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="v-5" value="Background Service Worker" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="324" y="560" width="180" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="v-6" value="Charts &amp;amp; UI" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="524" y="560" width="180" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="v-7" value="Backend API (Flask)" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="324" y="710" width="180" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="v-8" value="ML Model" style="whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="359" y="830" width="110" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;fontColor=default;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" source="v-2" target="v-3" edge="1">
+          <mxGeometry x="-0.1268" y="36" relative="1" as="geometry">
+            <mxPoint x="414" y="380" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-13" value="&lt;span&gt;Clicks Analyze&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="e-0">
+          <mxGeometry x="-0.109" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;fontColor=default;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" source="v-3" target="v-4" edge="1">
+          <mxGeometry x="0.2579" y="-34" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-12" value="&lt;span&gt;Injects Script&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="e-1">
+          <mxGeometry x="0.2348" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;fontColor=default;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" source="v-3" target="v-5" edge="1">
+          <mxGeometry x="0.2079" y="-24" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="414" y="490" />
+              <mxPoint x="414" y="530" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-5" value="&lt;span&gt;Batches Data&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;rotation=-90;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="e-3">
+          <mxGeometry x="-0.2497" y="1" relative="1" as="geometry">
+            <mxPoint x="-15" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;fontColor=default;labelBackgroundColor=none;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" source="v-3" target="v-6" edge="1">
+          <mxGeometry x="0.4055" y="16" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="614" y="435" />
+              <mxPoint x="614" y="530" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-8" value="&lt;span&gt;Updates&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;rotation=-90;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="e-4">
+          <mxGeometry x="0.3178" relative="1" as="geometry">
+            <mxPoint x="-14" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-8" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;fontColor=default;labelBackgroundColor=none;elbow=vertical;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" source="v-7" target="v-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-16" value="&lt;span&gt;Inference ROBERTa&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="e-8">
+          <mxGeometry x="-0.125" y="3" relative="1" as="geometry">
+            <mxPoint x="-21" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-9" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endArrow=classic;endFill=1;fontColor=default;labelBackgroundColor=none;elbow=vertical;fontSize=13;fontFamily=CMU Serif;fontStyle=1" parent="1" source="v-8" target="v-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-17" value="&lt;span&gt;Results&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="e-9">
+          <mxGeometry x="0.1181" y="1" relative="1" as="geometry">
+            <mxPoint x="4" y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;fontSize=13;fontFamily=CMU Serif;fontStyle=1" edge="1" parent="1" source="v-4" target="v-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="550" as="sourcePoint" />
+            <mxPoint x="340" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-4" value="Scrapes Comments" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=318;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="kx-H1DALmo9rLh-gNxWp-3">
+          <mxGeometry x="0.0111" relative="1" as="geometry">
+            <mxPoint x="-15" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-6" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;fontSize=13;fontFamily=CMU Serif;fontStyle=1" edge="1" parent="1" source="v-5" target="v-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="600" as="sourcePoint" />
+            <mxPoint x="430" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-7" value="Results" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=90;fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="kx-H1DALmo9rLh-gNxWp-6">
+          <mxGeometry x="0.0957" y="-2" relative="1" as="geometry">
+            <mxPoint x="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=13;fontFamily=CMU Serif;fontStyle=1" edge="1" parent="1" source="v-5" target="v-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="720" as="sourcePoint" />
+            <mxPoint x="460" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-11" value="HTTPS POST /analyze" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="kx-H1DALmo9rLh-gNxWp-9">
+          <mxGeometry x="-0.1757" y="-1" relative="1" as="geometry">
+            <mxPoint x="-38" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;fontSize=13;fontFamily=CMU Serif;fontStyle=1" edge="1" parent="1" source="v-7" target="v-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="690" as="sourcePoint" />
+            <mxPoint x="490" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kx-H1DALmo9rLh-gNxWp-14" value="JSON Response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontFamily=CMU Serif;fontStyle=1" vertex="1" connectable="0" parent="kx-H1DALmo9rLh-gNxWp-10">
+          <mxGeometry x="0.3077" y="-3" relative="1" as="geometry">
+            <mxPoint x="18" y="26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

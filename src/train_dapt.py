@@ -9,7 +9,7 @@ from transformers import (
 from datasets import load_dataset
 
 
-MODEL_NAME = "microsoft/deberta-v3-base"
+MODEL_NAME = "FacebookAI/roberta-base"
 
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)

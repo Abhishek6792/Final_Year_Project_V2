@@ -56,7 +56,7 @@ scipy>=1.12.0
 # configs/config.yaml
 
 ```yaml
-teacher_model: microsoft/deberta-v3-base
+teacher_model: FacebookAI/roberta-base
 student_model: distilroberta-base
 
 max_length: 512
@@ -278,7 +278,7 @@ from transformers import (
 from datasets import load_dataset
 
 
-MODEL_NAME = "microsoft/deberta-v3-base"
+MODEL_NAME = "FacebookAI/roberta-base"
 
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
@@ -512,7 +512,7 @@ TEMPERATURE = 3.0
 ALPHA = 0.7
 
 
-teacher = MentalHealthModel("microsoft/deberta-v3-base")
+teacher = MentalHealthModel("FacebookAI/roberta-base")
 teacher.load_state_dict(torch.load("checkpoints/best_teacher.pt"))
 teacher.eval()
 

@@ -1,4 +1,4 @@
-teacher_model: microsoft/deberta-v3-base
+teacher_model: FacebookAI/roberta-base
 student_model: distilroberta-base
 
 max_length: 512

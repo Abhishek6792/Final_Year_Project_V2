@@ -52,7 +52,7 @@ The key shift is:
 
 ### 2. Model architecture and training
 - Teacher model:
-  - Use `microsoft/deberta-v3-base` as the main research model.
+  - Use `FacebookAI/roberta-base` as the main research model.
   - Input length: `256`
   - Fine-tune with full supervision, not frozen embeddings.
 - Student model for deployment:
@@ -174,4 +174,4 @@ The key shift is:
 - Public social-media text only; no private/user-authenticated ingestion.
 - The project should remain a browser-extension + local API system.
 - The final system should avoid claiming diagnosis and instead report mental-health-related signals with confidence and limitations.
-- `deberta-v3-base` is the primary teacher model; `distilroberta-base` ONNX is the deployment student by default.
+- `FacebookAI/roberta-base` is the primary teacher model; `distilroberta-base` ONNX is the deployment student by default.

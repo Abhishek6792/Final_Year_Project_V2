@@ -10,7 +10,7 @@ TEMPERATURE = 3.0
 ALPHA = 0.7
 
 
-teacher = MentalHealthModel("microsoft/deberta-v3-base")
+teacher = MentalHealthModel("FacebookAI/roberta-base")
 teacher.load_state_dict(torch.load("checkpoints/best_teacher.pt"))
 teacher.eval()
 

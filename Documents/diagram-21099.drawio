@@ -1,0 +1,180 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram name="Page-1" id="unique-diagram-id">
+    <mxGraphModel dx="1295" dy="819" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="v0" value="Scan folders for CSV files" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="83" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v1" value="Load all CSVs per folder" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="163" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v2" value="Count total samples per folder" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="243" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v3" value="Concatenate all CSVs" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="403" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v4" value="Remove duplicates and empty fields" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="483" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v5" value="Assign label(0,1,...,6)" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="563" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v6" value="Train/test split → train_df.csv, test_df.csv" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="85" y="643" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v7" value="Load train/test CSVs" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="125" y="723" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v11" value="Initialize RoBERTa model" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="480" y="300" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v12" value="Define loss, optimizer (AdamW), scheduler" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="450" y="220" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v13" value="Training loop:&lt;br&gt;Forward → Loss → Backprop → Step" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="460" y="130" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="v14" value="Validation loop:&lt;br&gt;Loss + Classification report" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="845" y="328" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="v15" value="Save model (state_dict)" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="865" y="418" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v0" target="v1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="143" as="sourcePoint" />
+            <mxPoint x="225" y="163" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v1" target="v2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="223" as="sourcePoint" />
+            <mxPoint x="225" y="243" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v3" target="v4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="463" as="sourcePoint" />
+            <mxPoint x="225" y="483" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v4" target="v5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="543" as="sourcePoint" />
+            <mxPoint x="225" y="563" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v5" target="v6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="623" as="sourcePoint" />
+            <mxPoint x="225" y="643" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v6" target="v7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="225" y="703" as="sourcePoint" />
+            <mxPoint x="225" y="723" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v11" target="v12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="140" as="sourcePoint" />
+            <mxPoint x="580" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v12" target="v13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="220" as="sourcePoint" />
+            <mxPoint x="580" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="1" source="v14" target="v15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="965" y="398" as="sourcePoint" />
+            <mxPoint x="965" y="418" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-1" value="Sample Balancing" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="125" y="323" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-2" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="v2" target="s843cgm8TknRJLjJKrbJ-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="213" as="sourcePoint" />
+            <mxPoint x="235" y="253" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-3" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s843cgm8TknRJLjJKrbJ-1" target="v3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="245" y="223" as="sourcePoint" />
+            <mxPoint x="245" y="263" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-4" value="&lt;font style=&quot;font-size: 21px;&quot; face=&quot;CMU Serif&quot;&gt;Data Preparation&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;glass=0;rounded=1;shadow=0;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="65" y="19" width="320" height="760" as="geometry">
+            <mxRectangle x="70" y="10" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="s843cgm8TknRJLjJKrbJ-5" target="s843cgm8TknRJLjJKrbJ-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-5" value="&lt;font style=&quot;font-size: 21px;&quot; face=&quot;CMU Serif&quot;&gt;Data Pre-processing&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;glass=0;rounded=1;shadow=0;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="430" y="449" width="300" height="290" as="geometry">
+            <mxRectangle x="70" y="10" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v8" value="Preprocess text &amp;amp; labels" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="s843cgm8TknRJLjJKrbJ-5" vertex="1">
+          <mxGeometry x="50" y="226" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v9" value="Tokenize using RoBERTa tokenizer" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="s843cgm8TknRJLjJKrbJ-5" vertex="1">
+          <mxGeometry x="50" y="146" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v10" value="Create TensorDatasets &amp;amp; DataLoaders" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="s843cgm8TknRJLjJKrbJ-5" vertex="1">
+          <mxGeometry x="50" y="61" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="s843cgm8TknRJLjJKrbJ-5" source="v8" target="v9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="76" as="sourcePoint" />
+            <mxPoint x="150" y="96" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=default;fontFamily=CMU Serif;fontStyle=1;fontSize=13;" parent="s843cgm8TknRJLjJKrbJ-5" source="v9" target="v10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="156" as="sourcePoint" />
+            <mxPoint x="150" y="176" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-6" value="&lt;font style=&quot;font-size: 21px;&quot; face=&quot;CMU Serif&quot;&gt;Validation / Evaluation&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;glass=0;rounded=1;shadow=0;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="825" y="277" width="280" height="206" as="geometry">
+            <mxRectangle x="70" y="10" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=default;curved=0;" edge="1" parent="1" source="s843cgm8TknRJLjJKrbJ-7" target="s843cgm8TknRJLjJKrbJ-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="59" />
+              <mxPoint x="965" y="59" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-7" value="&lt;font style=&quot;font-size: 21px;&quot; face=&quot;CMU Serif&quot;&gt;Model Setup&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;glass=0;rounded=1;shadow=0;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="430" y="83" width="300" height="295" as="geometry">
+            <mxRectangle x="70" y="10" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s843cgm8TknRJLjJKrbJ-8" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=0;" edge="1" parent="1" source="s843cgm8TknRJLjJKrbJ-4" target="s843cgm8TknRJLjJKrbJ-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="635" y="489" as="sourcePoint" />
+            <mxPoint x="685" y="439" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="225" y="809" />
+              <mxPoint x="580" y="809" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
