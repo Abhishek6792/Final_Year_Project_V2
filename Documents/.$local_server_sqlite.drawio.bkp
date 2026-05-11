@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="cLOVB35WAecivBDvf3Dm">
+    <mxGraphModel dx="1393" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4fb;strokeColor=#2e86c1;strokeWidth=2.2;fontSize=16;fontFamily=CMU Serif;" value="" vertex="1">
+          <mxGeometry height="460" width="340" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e86c1;strokeColor=#2e86c1;fontSize=16;fontStyle=1;fontColor=white;fontFamily=CMU Serif;" value="Chrome Extension" vertex="1">
+          <mxGeometry height="48" width="340" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1a4a8a;fontFamily=CMU Serif;" value="content.js" vertex="1">
+          <mxGeometry height="30" width="320" x="20" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1a4a8a;fontFamily=CMU Serif;" value="page-monitor.js" vertex="1">
+          <mxGeometry height="30" width="320" x="20" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-6" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#4a235a;fontFamily=CMU Serif;" value="background.js" vertex="1">
+          <mxGeometry height="30" width="320" x="20" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-7" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1e8449;fontFamily=CMU Serif;" value="Popup UI" vertex="1">
+          <mxGeometry height="30" width="320" x="20" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-8" parent="1" style="line;strokeColor=#2e86c1;strokeWidth=1.4;fontSize=16;fontFamily=CMU Serif;" value="" vertex="1">
+          <mxGeometry height="10" width="300" x="30" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#e67e22;fontSize=16;fontStyle=1;fontColor=#e67e22;strokeWidth=1.8;fontFamily=CMU Serif;" value="POST /api/analyze" vertex="1">
+          <mxGeometry height="40" width="300" x="30" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#4a235a;fontSize=16;fontStyle=1;fontColor=#4a235a;strokeWidth=1.8;fontFamily=CMU Serif;" value="POST /api/events" vertex="1">
+          <mxGeometry height="40" width="300" x="30" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#27ae60;fontSize=16;fontStyle=1;fontColor=#27ae60;strokeWidth=1.8;fontFamily=CMU Serif;" value="GET /health" vertex="1">
+          <mxGeometry height="40" width="300" x="30" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5eef8;strokeColor=#7d3c98;strokeWidth=2.4;fontSize=16;fontFamily=CMU Serif;" value="" vertex="1">
+          <mxGeometry height="460" width="243" x="417" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7d3c98;strokeColor=#7d3c98;fontSize=16;fontStyle=1;fontColor=white;fontFamily=CMU Serif;" value="FastAPI&amp;nbsp;" vertex="1">
+          <mxGeometry height="48" width="243" x="417" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#27ae60;fontSize=16;fontStyle=1;fontColor=#27ae60;strokeWidth=1.8;fontFamily=CMU Serif;" value="GET &amp;nbsp;&amp;nbsp; /health" vertex="1">
+          <mxGeometry height="48" width="163" x="437" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#e67e22;fontSize=16;fontStyle=1;fontColor=#e67e22;strokeWidth=1.8;fontFamily=CMU Serif;" value="POST  /api/analyze" vertex="1">
+          <mxGeometry height="48" width="163" x="437" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#4a235a;fontSize=16;fontStyle=1;fontColor=#4a235a;strokeWidth=1.8;fontFamily=CMU Serif;" value="POST  /api/events" vertex="1">
+          <mxGeometry height="48" width="163" x="437" y="216" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-17" parent="1" style="line;strokeColor=#7d3c98;strokeWidth=1.4;fontSize=16;fontFamily=CMU Serif;" value="" vertex="1">
+          <mxGeometry height="10" width="360" x="437" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-18" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#784212;fontFamily=CMU Serif;" value="ONNX Inference" vertex="1">
+          <mxGeometry height="30" width="173" x="427" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-19" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#555;fontFamily=CMU Serif;" value="INT8 · CPUExecutionProvider&amp;nbsp;" vertex="1">
+          <mxGeometry height="28" width="263" x="427" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-20" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#888;fontFamily=CMU Serif;" value="Uvicorn · Python 3.11&amp;nbsp;" vertex="1">
+          <mxGeometry height="28" width="223" x="427" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-21" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#888;fontFamily=CMU Serif;" value="Model: ~125 MB&amp;nbsp;" vertex="1">
+          <mxGeometry height="28" width="233" x="427" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f4e8;strokeColor=#5a9e5a;strokeWidth=2.4;fontSize=16;fontFamily=CMU Serif;" value="" vertex="1">
+          <mxGeometry height="460" width="340" x="704" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5a9e5a;strokeColor=#5a9e5a;fontSize=16;fontStyle=1;fontColor=white;fontFamily=CMU Serif;" value="SQLite — wellbeing.db" vertex="1">
+          <mxGeometry height="48" width="340" x="704" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#5a9e5a;fontSize=16;fontStyle=1;fontColor=#1a5c35;strokeWidth=1.8;fontFamily=CMU Serif;" value="sessions" vertex="1">
+          <mxGeometry height="38" width="300" x="724" y="102" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-25" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#555;fontFamily=CMU Serif;" value="platform · duration · tab_url · timestamp" vertex="1">
+          <mxGeometry height="28" width="320" x="714" y="144" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=white;strokeColor=#5a9e5a;fontSize=16;fontStyle=1;fontColor=#1a5c35;strokeWidth=1.8;fontFamily=CMU Serif;" value="analysis_results" vertex="1">
+          <mxGeometry height="38" width="300" x="724" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-27" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#555;fontFamily=CMU Serif;" value="session_id · label_scores · risk_score" vertex="1">
+          <mxGeometry height="28" width="320" x="714" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-28" parent="1" style="line;strokeColor=#5a9e5a;strokeWidth=1.4;fontSize=16;fontFamily=CMU Serif;" value="" vertex="1">
+          <mxGeometry height="10" width="300" x="724" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-29" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=2;fontColor=#888;fontFamily=CMU Serif;" value="~/.mwg/sessions.db" vertex="1">
+          <mxGeometry height="28" width="320" x="714" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-30" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1e8449;fontFamily=CMU Serif;" value="Never leaves device" vertex="1">
+          <mxGeometry height="30" width="320" x="714" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-31" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontColor=#555;fontFamily=CMU Serif;" value="Written by background.js via /api/events" vertex="1">
+          <mxGeometry height="28" width="320" x="714" y="376" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-32" edge="1" parent="1" source="a7SxqsRFyhd2e7a6_7Rg-9" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#e67e22;strokeWidth=2.2;fillColor=#e67e22;fontSize=16;fontColor=#e67e22;fontStyle=1;exitX=1;exitY=0.55;entryX=0;entryY=0.55;fontFamily=CMU Serif;" target="a7SxqsRFyhd2e7a6_7Rg-15" value="POST /api/analyze">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-33" edge="1" parent="1" source="a7SxqsRFyhd2e7a6_7Rg-10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#4a235a;strokeWidth=2.2;fillColor=#4a235a;fontSize=16;fontColor=#4a235a;fontStyle=1;exitX=1;exitY=0.55;entryX=0;entryY=0.55;fontFamily=CMU Serif;" target="a7SxqsRFyhd2e7a6_7Rg-16" value="POST /api/events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-34" edge="1" parent="1" source="a7SxqsRFyhd2e7a6_7Rg-11" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#27ae60;strokeWidth=2;fillColor=#27ae60;dashed=1;dashPattern=8 4;fontSize=16;fontColor=#27ae60;fontStyle=1;exitX=1;exitY=0.55;entryX=0;entryY=0.55;fontFamily=CMU Serif;" target="a7SxqsRFyhd2e7a6_7Rg-14" value="GET /health">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-35" edge="1" parent="1" source="a7SxqsRFyhd2e7a6_7Rg-12" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#27ae60;strokeWidth=2.2;fillColor=#27ae60;dashed=1;dashPattern=8 4;fontSize=16;fontColor=#27ae60;fontStyle=2;exitX=0;exitY=0.35;entryX=1;entryY=0.35;fontFamily=CMU Serif;" target="a7SxqsRFyhd2e7a6_7Rg-2" value="JSON response">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7SxqsRFyhd2e7a6_7Rg-36" edge="1" parent="1" source="a7SxqsRFyhd2e7a6_7Rg-12" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#5a9e5a;strokeWidth=2.2;fillColor=#5a9e5a;fontSize=16;fontColor=#1a5c35;fontStyle=1;exitX=1;exitY=0.55;entryX=0;entryY=0.55;fontFamily=CMU Serif;" target="a7SxqsRFyhd2e7a6_7Rg-22" value="write session">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram name="Fig 6.1 Dual-Mode Architecture" id="fig61">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Figure 6.1: Overall Dual-Mode System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="20" width="460" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="ext" value="&lt;b&gt;Chrome MV3 Extension&lt;/b&gt;&lt;br/&gt;Popup · content.js · page-monitor.js · background.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="65" width="320" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="modemgr" value="&lt;b&gt;Mode Manager&lt;/b&gt;&lt;br/&gt;Cloud / Local toggle + health check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="285" y="175" width="250" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_ext_mgr" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ext" target="modemgr" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cloud" value="&lt;b&gt;Cloud Mode&lt;/b&gt;&lt;br/&gt;Hugging Face Spaces&lt;br/&gt;FastAPI + ONNX Runtime (CPU)&lt;br/&gt;Stateless · no persistence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="local" value="&lt;b&gt;Local Mode&lt;/b&gt;&lt;br/&gt;Dockerized Flask + ONNX Runtime&lt;br/&gt;localhost:8000&lt;br/&gt;SQLite persistence · Web hub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="290" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_mgr_cloud" value="HTTPS POST" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="modemgr" target="cloud" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_mgr_local" value="health check + inference" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="modemgr" target="local" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="onnx" value="&lt;b&gt;ONNX INT8 Model&lt;/b&gt;&lt;br/&gt;ekam28/emotion-detector-onnx (~125 MB)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="265" y="445" width="290" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_cloud_onnx" value="model loading" style="edgeStyle=orthogonalEdgeStyle;dashed=1;fontSize=11;" edge="1" source="cloud" target="onnx" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_local_onnx" value="model loading" style="edgeStyle=orthogonalEdgeStyle;dashed=1;fontSize=11;" edge="1" source="local" target="onnx" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sqlite" value="&lt;b&gt;SQLite store&lt;/b&gt;&lt;br/&gt;events · settings tables" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="545" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="webhub" value="&lt;b&gt;Web hub&lt;/b&gt;&lt;br/&gt;Dashboard · Self-check · Settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="545" width="195" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_local_sqlite" value="persist events" style="edgeStyle=orthogonalEdgeStyle;dashed=1;fontSize=11;" edge="1" source="local" target="sqlite" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_local_webhub" value="serves" style="edgeStyle=orthogonalEdgeStyle;dashed=1;fontSize=11;" edge="1" source="local" target="webhub" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

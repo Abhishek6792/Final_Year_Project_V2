@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram name="Fig 8.1 Interventions Flow" id="fig81">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Figure 8.1: Smart Shield and Wellbeing Interventions Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="20" width="560" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 1 -->
+        <mxCell id="observer" value="&lt;b&gt;MutationObserver fires&lt;/b&gt;&lt;br/&gt;page-monitor.js · 1400ms debounce" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="65" width="270" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 2 -->
+        <mxCell id="sample" value="&lt;b&gt;Sample visible comments&lt;/b&gt;&lt;br/&gt;up to 24 per cycle · skip processed nodes&lt;br/&gt;session-level deduplication Set" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="170" width="270" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="observer" target="sample" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 3 -->
+        <mxCell id="inference" value="&lt;b&gt;Send to inference endpoint&lt;/b&gt;&lt;br/&gt;ONNX Runtime → 7 label probs&lt;br/&gt;softmax · top-k output" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="285" width="270" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sample" target="inference" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 4: Risk score -->
+        <mxCell id="riskscore" value="&lt;b&gt;Risk score computed&lt;/b&gt;&lt;br/&gt;0.00–1.00 → calm / guarded / high / extreme&lt;br/&gt;distress-weighted formula + keyword boost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="400" width="270" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="inference" target="riskscore" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 4 intervention branches -->
+
+        <!-- Smart Shield -->
+        <mxCell id="shield" value="&lt;b&gt;Smart Shield&lt;/b&gt;&lt;br/&gt;Trigger: risk ≥ threshold (default 0.62)&lt;br/&gt;Action: CSS blur overlay on comment&lt;br/&gt;Dismiss: click to reveal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="535" width="195" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_risk_shield" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="riskscore" target="shield" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Rabbit-hole nudge -->
+        <mxCell id="nudge" value="&lt;b&gt;Rabbit-hole nudge&lt;/b&gt;&lt;br/&gt;Trigger: session avg risk &gt; 0.40 + time&lt;br/&gt;Action: fixed-position injected div&lt;br/&gt;Dismiss: user click" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="535" width="195" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_risk_nudge" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="riskscore" target="nudge" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Breather mode -->
+        <mxCell id="breather" value="&lt;b&gt;Breather mode&lt;/b&gt;&lt;br/&gt;Trigger: extended session / user-triggered&lt;br/&gt;Action: full-page overlay · 5-min countdown&lt;br/&gt;Dismiss: early dismiss button" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="535" width="195" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_risk_breather" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="riskscore" target="breather" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Draft support prompt -->
+        <mxCell id="draft" value="&lt;b&gt;Draft support prompt&lt;/b&gt;&lt;br/&gt;Trigger: keyword match in textarea&lt;br/&gt;Action: locale helpline panel injected&lt;br/&gt;No content interception" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="535" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_risk_draft" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="riskscore" target="draft" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- User control note -->
+        <mxCell id="user_note" value="All interventions are reversible overlays — no content blocked or deleted; user retains full control" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="860" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

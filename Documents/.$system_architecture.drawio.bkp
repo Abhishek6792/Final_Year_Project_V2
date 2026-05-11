@@ -1,0 +1,160 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36">
+  <diagram name="Page-1" id="aBcDeFgHiJkLmNoPqRsT">
+    <mxGraphModel dx="883" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-19" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="690" width="900" x="100" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-6" connectable="0" parent="rkh2ygiFc1j89Bgo2RW6-19" style="group;fillOpacity=100;labelBackgroundColor=none;fontColor=light-dark(#000000,#FFFFFF);" value="" vertex="1">
+          <mxGeometry height="150" width="900" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_container" parent="rkh2ygiFc1j89Bgo2RW6-6" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=center;verticalAlign=top;spacingTop=8;fontSize=14;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="&lt;b&gt;Stage 1 — Data Pipeline (annotate_data/)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="150" width="900" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_box1" parent="rkh2ygiFc1j89Bgo2RW6-6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Reddit Posts&lt;br&gt;(Weak Labels)" vertex="1">
+          <mxGeometry height="60" width="120" x="60" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_box3" parent="rkh2ygiFc1j89Bgo2RW6-6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="LLM-Assisted Annotation&lt;br&gt;8 Signal Labels + Severity&amp;nbsp;&lt;div&gt;[&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;0-3]&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="240" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_box4" parent="rkh2ygiFc1j89Bgo2RW6-6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Schema Unification&lt;br&gt;text · platform · labels · severity" vertex="1">
+          <mxGeometry height="60" width="160" x="470" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_box5" parent="rkh2ygiFc1j89Bgo2RW6-6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Author-Isolated&lt;br&gt;Train / Val / Test Splits" vertex="1">
+          <mxGeometry height="60" width="160" x="700" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_edge1" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-6" source="stage1_box1" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;entryDx=0;entryDy=0;" target="stage1_box3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stage1_edge3" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-6" source="stage1_box3" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage1_box4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1_edge4" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-6" source="stage1_box4" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage1_box5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-16" connectable="0" parent="rkh2ygiFc1j89Bgo2RW6-19" style="group" value="" vertex="1">
+          <mxGeometry height="180" width="900" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="stage2_container" parent="rkh2ygiFc1j89Bgo2RW6-16" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=center;verticalAlign=top;spacingTop=8;fontSize=14;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;glass=0;shadow=0;fontColor=light-dark(#000000,#FFFFFF);" value="&lt;b&gt;Stage 2 — Training Pipeline (src/train_dapt.py &amp;gt; train_teacher.py &amp;gt; distill_student.py)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="180" width="900" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-7" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-16" source="stage2_box1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="stage2_box2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-8" connectable="0" parent="rkh2ygiFc1j89Bgo2RW6-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font face=&quot;CMU Serif&quot;&gt;DAPT&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;CMU Serif&quot;&gt;Weights&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.2321" y="-3" as="geometry">
+            <mxPoint x="-9" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stage2_box1" parent="rkh2ygiFc1j89Bgo2RW6-16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="DAPT Pre-training&lt;br&gt;&lt;b&gt;roberta-base&lt;/b&gt;&lt;br&gt;Unlabelled Social Text&lt;br&gt;src/train_dapt.py" vertex="1">
+          <mxGeometry height="80" width="130" x="10" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="stage2_box2" parent="rkh2ygiFc1j89Bgo2RW6-16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Teacher Fine-tuning&lt;br&gt;&lt;b&gt;roberta-base&lt;/b&gt; (len 256)&lt;br&gt;Multi-task: Signal + Severity&lt;br&gt;src/train_teacher.py" vertex="1">
+          <mxGeometry height="80" width="160" x="190" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="stage2_box3" parent="rkh2ygiFc1j89Bgo2RW6-16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Loss Functions&lt;br&gt;Focal-BCE (8 signals)&lt;br&gt;Ordinal CE (severity)&lt;br&gt;src/losses.py" vertex="1">
+          <mxGeometry height="80" width="130" x="400" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-13" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-16" source="stage2_box4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="rkh2ygiFc1j89Bgo2RW6-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-14" connectable="0" parent="rkh2ygiFc1j89Bgo2RW6-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" value="&lt;font face=&quot;CMU Serif&quot;&gt;Soft&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;CMU Serif&quot;&gt;Logits&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1492" y="4" as="geometry">
+            <mxPoint x="-4" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Temperature Scaling&lt;br&gt;src/calibrate.py&lt;div&gt;Experiment Tracking&lt;br&gt;MLflow (src/mteric.py)&lt;/div&gt;" id="stage2_box4">
+          <mxCell parent="rkh2ygiFc1j89Bgo2RW6-16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;align=center;verticalAlign=top;spacingTop=5;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" vertex="1">
+            <mxGeometry height="80" width="130" x="560" y="65" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="stage2_edge3" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-16" source="stage2_box2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;align=center;verticalAlign=bottom;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage2_box3" value="Teacher&lt;div&gt;&amp;nbsp;ckpt&lt;/div&gt;">
+          <mxGeometry relative="1" x="-0.2" y="-15" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="450" y="110" />
+              <mxPoint x="475" y="110" />
+              <mxPoint x="475" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stage2_edge4" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-16" source="stage2_box3" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage2_box4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-10" parent="rkh2ygiFc1j89Bgo2RW6-16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="&lt;div&gt;&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;Student Distillation&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;src/ditill_student.py&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;font-size: 11px; white-space: nowrap;&quot;&gt;KL-Div distillation &amp;gt;&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px; white-space: nowrap;&quot;&gt;distilroberta-base student&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="130" x="750" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-17" connectable="0" parent="rkh2ygiFc1j89Bgo2RW6-19" style="group" value="" vertex="1">
+          <mxGeometry height="250" width="900" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_container" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=center;verticalAlign=top;spacingTop=8;fontSize=14;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;glass=0;shadow=0;fontColor=light-dark(#000000,#FFFFFF);" value="&lt;b&gt;Stage 3 — Deployment (src/export_onnx.py &amp;gt; quantize.py &amp;gt; inference.py)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="250" width="900" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box1" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="export onnx.py&lt;br&gt;distilroberta → ONNX&lt;br&gt;(PyTorch export)" vertex="1">
+          <mxGeometry height="58.333333333333336" width="160" x="30" y="41.666666666666664" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box2" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="quantize.py&lt;br&gt;Dynamic INT8&lt;br&gt;Quantization" vertex="1">
+          <mxGeometry height="58.333333333333336" width="160" x="270" y="41.666666666666664" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box3" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="inference.py / Flask API&lt;br&gt;POST /api/v2/analyze/comments&lt;br&gt;ONNX Runtime (CPU)" vertex="1">
+          <mxGeometry height="58.333333333333336" width="180" x="490" y="41.666666666666664" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box4" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Aggregation Layer&lt;br&gt;Prevalence + Uncertainty&lt;br&gt;Disclaimer metadata" vertex="1">
+          <mxGeometry height="58.333333333333336" width="160" x="710" y="41.666666666666664" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_edge1" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;align=center;verticalAlign=bottom;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box2" value="ONNX model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_edge2" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;align=center;verticalAlign=bottom;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box3" value="INT8&amp;nbsp;&lt;div&gt;model&lt;/div&gt;">
+          <mxGeometry relative="1" y="-15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stage3_edge3" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;align=center;verticalAlign=bottom;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box4" value="JSON&amp;nbsp;&lt;div&gt;response&lt;/div&gt;">
+          <mxGeometry relative="1" y="-15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stage3_box5" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Per-Comment Output&lt;br&gt;· 8 signal probabilities&lt;br&gt;· Severity [0 - 3]&lt;br&gt;· Confidence score" vertex="1">
+          <mxGeometry height="66.66666666666667" width="160" x="30" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box6" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Page-Level Summary&lt;br&gt;· Top signals&lt;br&gt;· Evidence comments&lt;br&gt;· Uncertain state" vertex="1">
+          <mxGeometry height="66.66666666666667" width="160" x="270" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box7" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Browser Extension UI&lt;br&gt;Signal Summary View&lt;br&gt;Evidence Comments" vertex="1">
+          <mxGeometry height="66.66666666666667" width="180" x="490" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_box8" parent="rkh2ygiFc1j89Bgo2RW6-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fillOpacity=100;labelBackgroundColor=none;fontFamily=CMU Serif;fontColor=light-dark(#000000,#FFFFFF);" value="Website Frontend&lt;br&gt;Direct Text Analysis&lt;br&gt;(Vercel)" vertex="1">
+          <mxGeometry height="66.66666666666667" width="160" x="710" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_edge4" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_edge5" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box2" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_edge6" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box3" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="stage3_edge7" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-17" source="stage3_box4" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fillOpacity=100;fontColor=light-dark(#000000,#FFFFFF);labelBackgroundColor=none;fillColor=none;fontFamily=CMU Serif;" target="stage3_box8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-9" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-19" source="stage1_container" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="stage2_container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-15" edge="1" parent="rkh2ygiFc1j89Bgo2RW6-19" source="stage2_container" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="stage3_container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rkh2ygiFc1j89Bgo2RW6-18" connectable="0" parent="rkh2ygiFc1j89Bgo2RW6-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font face=&quot;CMU Serif&quot;&gt;distillroberta&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;CMU Serif&quot;&gt;student weights&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.228" y="2" as="geometry">
+            <mxPoint x="-2" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

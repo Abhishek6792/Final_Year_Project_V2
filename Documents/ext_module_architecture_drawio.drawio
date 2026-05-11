@@ -1,0 +1,149 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="KHcn82fUdHFXoBuJhU7F">
+    <mxGraphModel dx="535" dy="347" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-68" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#2e75b6;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;manifest.json — MV3&lt;/b&gt;&lt;hr&gt;Host permissions:&lt;br&gt;&amp;nbsp;&amp;nbsp;YouTube · Reddit · X · Twitter&lt;br&gt;&amp;nbsp;&amp;nbsp;hf.space · localhost:8000&lt;br&gt;service_worker: background.js&lt;br&gt;content_scripts:&lt;br&gt;&amp;nbsp;&amp;nbsp;content.js, page-monitor.js&lt;br&gt;web_accessible_resources: assets/" vertex="1">
+          <mxGeometry height="200" width="310" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#2e75b6;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;config.js — Selectors &amp;amp; Constants&lt;/b&gt;&lt;hr&gt;YouTube: ytd-comment-thread-renderer&lt;br&gt;Reddit: shreddit-comment&lt;br&gt;X/Twitter: article[data-testid]&lt;br&gt;Manual batch: 30 · Passive sample: 24&lt;br&gt;Debounce: 1400 ms&lt;br&gt;Shield threshold: 0.62&lt;br&gt;Timeouts: Local 60s / Cloud 120s" vertex="1">
+          <mxGeometry height="200" width="310" x="320" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-70" parent="1" style="shape=mxgraph.cisco.servers.standard_server;whiteSpace=wrap;html=1;fillColor=#fff9db;strokeColor=#d6b656;fontColor=#4a3800;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;rounded=1;fontFamily=CMU Serif;" value="&lt;b&gt;chrome.storage.local&lt;/b&gt;&lt;hr&gt;&lt;br&gt;Current mode (Cloud / Local)&lt;br&gt;Shield threshold value&lt;br&gt;User preferences&lt;br&gt;&lt;br&gt;(read/write by all modules)" vertex="1">
+          <mxGeometry height="200" width="230" x="640" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;background.js — MV3 Service Worker&lt;/b&gt;&lt;hr&gt;chrome.tabs.onActivated / onUpdated / onRemoved&lt;br&gt;Tracks per-tab session start time&lt;br&gt;Discards sessions under 10 seconds&lt;br&gt;On valid session end:&lt;br&gt;&amp;nbsp;&amp;nbsp;POST /api/events (Local Mode only)&lt;br&gt;Reads mode from chrome.storage.local" vertex="1">
+          <mxGeometry height="210" width="430" x="84" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9db;strokeColor=#d6b656;fontColor=#4a3800;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;Mode Manager — Routing Logic&lt;/b&gt;&lt;hr&gt;Cloud Mode (default):&lt;br&gt;&amp;nbsp;&amp;nbsp;Route to hf.space/batch · Timeout: 120s&lt;br&gt;Local Mode (opt-in):&lt;br&gt;&amp;nbsp;&amp;nbsp;GET /health (health check first)&lt;br&gt;&amp;nbsp;&amp;nbsp;Fail → fallback Cloud + warn user&lt;br&gt;&amp;nbsp;&amp;nbsp;Route to localhost:8000/api/analyze&lt;br&gt;&amp;nbsp;&amp;nbsp;Timeout: 60s&lt;br&gt;Mode persisted in chrome.storage.local" vertex="1">
+          <mxGeometry height="210" width="326" x="554" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-73" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;content.js — Manual Comment Extraction&lt;/b&gt;&lt;hr&gt;Triggered by &quot;Analyse Thread&quot; button&lt;br&gt;Reads platform selectors from config.js&lt;br&gt;querySelectorAll → collect visible comment nodes&lt;br&gt;Extracts innerText · deduplicates entries&lt;br&gt;Truncates each comment to 512 tokens&lt;br&gt;Splits into batches of 30&lt;br&gt;Sends each batch → Mode Manager → API&lt;br&gt;Returns label distributions to popup.js" vertex="1">
+          <mxGeometry height="250" width="430" x="84" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-74" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;page-monitor.js — Passive Monitoring&lt;/b&gt;&lt;hr&gt;MutationObserver on document.body&lt;br&gt;1400 ms debounce (avoids scroll spam)&lt;br&gt;Samples up to 24 new visible comments/cycle&lt;br&gt;Skips already-processed nodes (session Set)&lt;br&gt;Sends sample → Mode Manager → API&lt;br&gt;Applies Smart Shield blur if risk ≥ 0.62&lt;br&gt;Tracks rolling session risk average&lt;br&gt;Injects rabbit-hole nudge if avg risk &amp;gt; 0.40&lt;br&gt;Manages 5-min breather mode overlay&lt;br&gt;Watches textarea for draft support prompts" vertex="1">
+          <mxGeometry height="250" width="356" x="554" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-75" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));&quot;&gt;&amp;nbsp; Popup UI — popup.html + popup.js  [3 Tabs]&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;Tab 1 — Dashboard:&lt;br&gt;&amp;nbsp;&amp;nbsp;Chart.js doughnut (label distribution)&lt;br&gt;&amp;nbsp;&amp;nbsp;Risk band summary · session count&lt;br&gt;Tab 2 — Thread Analysis:&lt;br&gt;&amp;nbsp;&amp;nbsp;Per-comment risk score + top label&lt;br&gt;&amp;nbsp;&amp;nbsp;Label filter dropdown&lt;br&gt;&amp;nbsp;&amp;nbsp;&quot;Analyse Thread&quot; → triggers content.js&lt;br&gt;Tab 3 — Settings:&lt;br&gt;&amp;nbsp;&amp;nbsp;Cloud/Local mode toggle&lt;br&gt;&amp;nbsp;&amp;nbsp;Shield threshold slider (default 0.62)&lt;br&gt;&amp;nbsp;&amp;nbsp;Health status · privacy disclosure" vertex="1">
+          <mxGeometry height="310" width="406" x="84" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-76" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;&amp;nbsp; &amp;nbsp;Wellbeing Interventions&amp;nbsp;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&amp;nbsp;(injected by page-monitor.js)&lt;/b&gt;&lt;hr&gt;🛡 Smart Shield:&lt;br&gt;&amp;nbsp;&amp;nbsp;CSS blur on risk ≥ 0.62 · click-to-reveal&lt;br&gt;🐇 Rabbit-Hole Nudge:&lt;br&gt;&amp;nbsp;&amp;nbsp;Fixed-position div · avg risk &amp;gt; 0.40&lt;br&gt;&amp;nbsp;&amp;nbsp;Fully dismissable without action&lt;br&gt;🌬 Breather Mode:&lt;br&gt;&amp;nbsp;&amp;nbsp;Full-page overlay · 5-min countdown&lt;br&gt;&amp;nbsp;&amp;nbsp;Early dismiss always available&lt;br&gt;✍ Draft Support Prompts:&lt;br&gt;&amp;nbsp;&amp;nbsp;Keyword match in textarea / contenteditable&lt;br&gt;&amp;nbsp;&amp;nbsp;Locale helpline: iCall · Vandrevala (India)&lt;br&gt;&amp;nbsp;&amp;nbsp;Does NOT intercept typed content&lt;/div&gt;" vertex="1">
+          <mxGeometry height="310" width="356" x="554" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#888888;fontColor=#333333;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;content.css — Overlay Styles&lt;/b&gt;&lt;hr&gt;Blur filter CSS for Smart Shield&lt;br&gt;Nudge div layout and positioning&lt;br&gt;Breather mode full-page overlay&lt;br&gt;Draft helpline panel styling" vertex="1">
+          <mxGeometry height="150" width="390" x="84" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#888888;fontColor=#333333;fontSize=16;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontFamily=CMU Serif;" value="&lt;b&gt;Chart.js  (bundled local — no CDN)&lt;/b&gt;&lt;hr&gt;MV3 CSP compliant · no remote fetch&lt;br&gt;Local copy stored in extension assets/&lt;br&gt;Used exclusively by popup.js&lt;br&gt;Renders doughnut chart in Dashboard tab" vertex="1">
+          <mxGeometry height="150" width="316" x="554" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-79" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-68" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#2e75b6;fontColor=#2e75b6;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontFamily=CMU Serif;" target="1aIPhiD_bN7p4-epNvI_-71" value="registers SW">
+          <mxGeometry relative="1" x="-0.5082" y="-15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-80" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-68" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#2e75b6;fontColor=#2e75b6;dashed=1;exitX=0.2;exitY=1;entryX=0.2;entryY=0;fontFamily=CMU Serif;horizontal=0;" target="1aIPhiD_bN7p4-epNvI_-73" value="injects">
+          <mxGeometry relative="1" x="0.0043" y="-22" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="72" y="560" />
+              <mxPoint x="170" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-83" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-69" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#d79b00;fontColor=#d79b00;exitX=0.5;exitY=1;entryX=0.3;entryY=0;fontFamily=CMU Serif;dashed=1;horizontal=0;labelBackgroundColor=none;" target="1aIPhiD_bN7p4-epNvI_-74" value="selectors +&#xa; constants">
+          <mxGeometry relative="1" x="-0.6222" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="530" y="220" />
+              <mxPoint x="530" y="410" />
+              <mxPoint x="661" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-84" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-69" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#d79b00;fontColor=#D79B00;exitX=0.8;exitY=1;entryX=0.3;entryY=0;fontFamily=CMU Serif;horizontal=0;labelBackgroundColor=none;" target="1aIPhiD_bN7p4-epNvI_-72" value="endpoint&#xa; URLs">
+          <mxGeometry relative="1" x="0.6075" y="-2" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="578" y="270" />
+              <mxPoint x="652" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-86" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-71" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#82b366;fontColor=#82b366;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontFamily=CMU Serif;horizontal=0;labelBackgroundColor=none;" target="1aIPhiD_bN7p4-epNvI_-70" value="reads &#xa;mode">
+          <mxGeometry relative="1" x="-0.1473" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-87" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-73" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#d79b00;fontColor=#d79b00;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontFamily=CMU Serif;labelBackgroundColor=none;" target="1aIPhiD_bN7p4-epNvI_-72" value="route request">
+          <mxGeometry relative="1" x="0.0004" y="-6" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-88" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-74" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#d79b00;fontColor=#d79b00;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontFamily=CMU Serif;labelBackgroundColor=none;" target="1aIPhiD_bN7p4-epNvI_-72" value="route request">
+          <mxGeometry relative="1" x="-0.6362" y="-8" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-89" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-75" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#9673a6;fontColor=#9673a6;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;fontFamily=CMU Serif;" target="1aIPhiD_bN7p4-epNvI_-73" value="trigger manual scan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-90" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-75" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#9673a6;fontColor=#9673a6;dashed=1;exitX=1;exitY=0.2;entryX=0.75;entryY=1;fontFamily=CMU Serif;entryDx=0;entryDy=0;horizontal=1;labelBackgroundColor=none;" target="1aIPhiD_bN7p4-epNvI_-70" value="toggle mode /&#xa; threshold">
+          <mxGeometry relative="1" x="-0.171" y="50" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="880" y="982" />
+              <mxPoint x="880" y="260" />
+              <mxPoint x="812" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-91" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-74" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#b85450;fontColor=#b85450;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontFamily=CMU Serif;labelBackgroundColor=none;horizontal=0;" target="1aIPhiD_bN7p4-epNvI_-76" value="triggers">
+          <mxGeometry relative="1" x="-0.1429" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-92" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-76" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#888888;fontColor=#888888;dashed=1;exitX=0.25;exitY=1;entryX=0.8;entryY=0;fontFamily=CMU Serif;exitDx=0;exitDy=0;" target="1aIPhiD_bN7p4-epNvI_-77" value="uses styles">
+          <mxGeometry relative="1" x="-0.0978" y="-20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="643" y="1250" />
+              <mxPoint x="396" y="1250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-93" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-75" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#9673a6;fontColor=#9673a6;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontFamily=CMU Serif;" target="1aIPhiD_bN7p4-epNvI_-78" value="renders charts">
+          <mxGeometry relative="1" x="0.5526" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="287" y="1270" />
+              <mxPoint x="712" y="1270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-82" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-69" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#d79b00;fontColor=#d79b00;exitX=0.2;exitY=1;entryX=0.8;entryY=0;fontFamily=CMU Serif;horizontal=0;labelBackgroundColor=none;dashed=1;" target="1aIPhiD_bN7p4-epNvI_-73" value="selectors +&#xa; constants">
+          <mxGeometry relative="1" x="-0.7596" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1aIPhiD_bN7p4-epNvI_-81" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-68" style="edgeStyle=orthogonalEdgeStyle;fontSize=16;strokeColor=#2e75b6;fontColor=#2e75b6;dashed=1;exitX=0.8;exitY=1;entryX=0.2;entryY=0;fontFamily=CMU Serif;" target="1aIPhiD_bN7p4-epNvI_-74" value="injects">
+          <mxGeometry relative="1" x="0.2365" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="258" y="570" />
+              <mxPoint x="625" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IBVNcpYJk4jIYGbfpP6B-27" edge="1" parent="1" source="1aIPhiD_bN7p4-epNvI_-70" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.709;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#D79B00;strokeColor=#D79B00;curved=0;" target="1aIPhiD_bN7p4-epNvI_-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IBVNcpYJk4jIYGbfpP6B-28" connectable="0" parent="IBVNcpYJk4jIYGbfpP6B-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;horizontal=0;" value="&lt;span style=&quot;color: rgb(214, 182, 86); font-family: &amp;quot;CMU Serif&amp;quot;; font-size: 16px;&quot;&gt;read/write&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(214, 182, 86); font-family: &amp;quot;CMU Serif&amp;quot;; font-size: 16px;&quot;&gt;&amp;nbsp;mode&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.0187" y="1" as="geometry">
+            <mxPoint x="-16" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

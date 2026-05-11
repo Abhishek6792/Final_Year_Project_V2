@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="UY5DAEbc5CfGkWmc37ql">
+    <mxGraphModel dx="613" dy="374" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rgMNeBN861FAciuYGt5l-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontFamily=CMU Serif;" value="Mental Wellbeing Guard — Cloud Mode Data Flow" vertex="1">
+          <mxGeometry height="40" width="750" x="50" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;① User Browses Social Media&lt;/b&gt;&lt;br&gt;YouTube · Reddit · X · Twitter&lt;br&gt;Comments rendered in DOM" vertex="1">
+          <mxGeometry height="60" width="350" x="250" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-3" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=14;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-4" value="DOM events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;verticalAlign=top;fontFamily=CMU Serif;" value="&lt;b&gt;② Comment Extraction (Chrome Extension)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="110" width="550" x="150" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;Manual Scan&lt;/b&gt;&lt;br&gt;content.js&lt;br&gt;Platform CSS selectors&lt;br&gt;Batches of 30" vertex="1">
+          <mxGeometry height="70" width="230" x="170" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;Passive Monitor&lt;/b&gt;&lt;br&gt;page-monitor.js&lt;br&gt;MutationObserver&lt;br&gt;1400ms debounce · 24/cycle" vertex="1">
+          <mxGeometry height="70" width="250" x="430" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-7" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=14;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-8" value="Comment text array (max 100, truncated to 512 tokens)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-8" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;③ Mode Manager&lt;/b&gt;&lt;br&gt;Cloud Mode selected? (chrome.storage.local)&lt;br&gt;No health check needed in Cloud Mode" vertex="1">
+          <mxGeometry height="125" width="342" x="254" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-9" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-8" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6666FF;fontColor=#6666FF;fontSize=14;fontStyle=1;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-10" value="YES — Cloud Mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;④ HTTPS POST to Hugging Face Space&lt;/b&gt;&lt;br&gt;POST https://ekam28-emotion-detector-api.hf.space/batch&lt;br&gt;Body: JSON array of comment strings&lt;br&gt;Pydantic validation: max 5000 chars/text · max 100 items&lt;br&gt;Cloud API timeout: 120s (allows cold-start)" vertex="1">
+          <mxGeometry height="90" width="505" x="173" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-11" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;fontSize=14;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-12" value="Request received">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;verticalAlign=top;fontFamily=CMU Serif;" value="&lt;b&gt;⑤ Hugging Face Space — FastAPI Server&lt;/b&gt;&lt;br&gt;FastAPI + Uvicorn · Python 3.11 · Port 7860 · CORS enabled&lt;br&gt;Cold start: snapshot_download → ekam28/emotion-detector-onnx (INT8, ~125MB)&lt;br&gt;AutoTokenizer loaded from same HF repo&lt;br&gt;InferenceSession: CPUExecutionProvider" vertex="1">
+          <mxGeometry height="100" width="560" x="147.5" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-13" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-12" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;fontSize=14;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-14" value="Tokenize → run ONNX session → softmax">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;⑥ 7-Class ONNX Inference&lt;/b&gt;&lt;br&gt;ADHD (0.40) · Anxiety (0.72) · Autism (0.35) · BPD (0.88)&lt;br&gt;Depression (0.82) · PTSD (0.76) · Normal (0.00)&lt;br&gt;[distress weights in parentheses]&lt;br&gt;Output: sorted label-probability pairs per comment" vertex="1">
+          <mxGeometry height="95" width="505" x="175" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-15" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-14" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#00AA00;fontColor=#00AA00;fontSize=14;fontStyle=1;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-16" value="HTTP 200 — JSON array of distributions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;⑦ Risk Score Computation (in Extension)&lt;/b&gt;&lt;br&gt;risk = clamp( (1 − normal_score) × 0.55 + weighted_distress × 0.45 + keyword_boost )&lt;br&gt;keyword_boost: up to +0.24 for &quot;suicidal&quot;, &quot;self harm&quot; etc.&lt;br&gt;🟢 calm 0.00–0.39  🟡 guarded 0.40–0.67  🟠 high 0.68–0.83  🔴 extreme 0.84–1.00" vertex="1">
+          <mxGeometry height="80" width="550" x="152.5" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-17" edge="1" parent="1" source="rgMNeBN861FAciuYGt5l-16" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d79b00;fontSize=14;fontFamily=CMU Serif;" target="rgMNeBN861FAciuYGt5l-18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rgMNeBN861FAciuYGt5l-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=CMU Serif;" value="&lt;b&gt;&amp;nbsp;Wellbeing Interventions + Popup UI&lt;/b&gt;&lt;br&gt;&amp;nbsp;Smart Shield: blur if risk ≥ 0.62 (click to reveal)&lt;br&gt;&amp;nbsp;Rabbit-hole nudge: avg risk &amp;gt; 0.40 over session&lt;br&gt;Breather Mode: 5-min countdown, early dismissable&lt;br&gt;&amp;nbsp;Draft Prompts: locale-aware helpline panel (iCall, Vandrevala)&lt;br&gt;Popup: Chart.js doughnut · per-comment risk scores in Thread tab" vertex="1">
+          <mxGeometry height="110" width="550" x="150.5" y="970" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

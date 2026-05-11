@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram name="Fig 6.4 Extension Module Architecture" id="fig64">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Figure 6.4: Extension Module Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="20" width="460" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Extension boundary swimlane -->
+        <mxCell id="ext_boundary" value="Chrome MV3 Extension" style="swimlane;startSize=25;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="55" width="700" height="480" as="geometry"/>
+        </mxCell>
+
+        <!-- manifest.json -->
+        <mxCell id="manifest" value="&lt;b&gt;manifest.json&lt;/b&gt;&lt;br/&gt;permissions · host matches · MV3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="255" y="90" width="210" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- config.js -->
+        <mxCell id="config" value="&lt;b&gt;config.js&lt;/b&gt;&lt;br/&gt;CSS selectors · mode · constants&lt;br/&gt;platform URLs · thresholds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="195" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- background.js -->
+        <mxCell id="background" value="&lt;b&gt;background.js&lt;/b&gt;&lt;br/&gt;MV3 service worker&lt;br/&gt;session tracking · chrome.tabs events&lt;br/&gt;POST /api/events (local)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="200" width="210" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows manifest → config and background -->
+        <mxCell id="e_man_cfg" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="manifest" target="config" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_man_bg" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="manifest" target="background" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- content.js -->
+        <mxCell id="content" value="&lt;b&gt;content.js&lt;/b&gt;&lt;br/&gt;manual comment scan&lt;br/&gt;CSS selectors from config.js&lt;br/&gt;batch size: 30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="330" width="195" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- page-monitor.js -->
+        <mxCell id="pagemon" value="&lt;b&gt;page-monitor.js&lt;/b&gt;&lt;br/&gt;MutationObserver · 1400ms debounce&lt;br/&gt;sample 24 comments / cycle&lt;br/&gt;Smart Shield · nudge · breather · draft" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="330" width="240" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_cfg_content" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="config" target="content" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bg_pagemon" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="background" target="pagemon" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Popup group -->
+        <mxCell id="popup_group" value="&lt;b&gt;Popup (3-tab UI)&lt;/b&gt;" style="swimlane;startSize=25;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="455" width="590" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="tab1" value="Dashboard tab&lt;br/&gt;Chart.js doughnut" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="75" y="480" width="155" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="tab2" value="Thread analysis&lt;br/&gt;label filter · results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="265" y="480" width="155" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="tab3" value="Settings tab&lt;br/&gt;mode toggle · threshold slider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="455" y="480" width="180" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_content_popup" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="content" target="popup_group" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_pagemon_popup" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pagemon" target="popup_group" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- External APIs -->
+        <mxCell id="hfapi" value="&lt;b&gt;HF Space API&lt;/b&gt;&lt;br/&gt;POST /batch&lt;br/&gt;(Cloud Mode)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="155" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="flaskapi" value="&lt;b&gt;Flask API&lt;/b&gt;&lt;br/&gt;POST /api/analyze&lt;br/&gt;(Local Mode)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="330" width="155" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="chromestorage" value="&lt;b&gt;chrome.storage&lt;/b&gt;&lt;br/&gt;mode · threshold&lt;br/&gt;settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="455" width="155" height="65" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_content_hf" value="Cloud Mode" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;fontSize=11;" edge="1" source="content" target="hfapi" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_pagemon_hf" value="" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="pagemon" target="hfapi" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_content_flask" value="Local Mode" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;fontSize=11;" edge="1" source="content" target="flaskapi" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_pagemon_flask" value="" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;" edge="1" source="pagemon" target="flaskapi" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bg_storage" value="read/write" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d6b656;fontSize=11;" edge="1" source="background" target="chromestorage" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
